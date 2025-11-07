@@ -37,6 +37,13 @@
                     <p style="text-align: justify">
                         {{ $article }}
                     </p>
+                    <hr>
+                    <strong class="me-2">Sorted Kata :</strong>
+                    <p style="text-align: justify">
+                        @foreach ($sortedKata as $item)
+                            {{ $item }}
+                        @endforeach
+                    </p>
                 </div>
             </div>
         </div>

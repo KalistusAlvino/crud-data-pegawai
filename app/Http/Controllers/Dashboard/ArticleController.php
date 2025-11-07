@@ -74,7 +74,7 @@ Sumbangan Sukarela dan Tabungan Karyawisata.";
     {
         $article = $this->article;
         $kataDitemukan = 0;
-
+        $sortedKata = [];
 
         if ($request->kata_diubah && $request->menjadi) {
             $article = str_ireplace(
@@ -91,6 +91,11 @@ Sumbangan Sukarela dan Tabungan Karyawisata.";
                 strtolower($request->pencarian_kata)
             );
         }
-        return view('dashboard.article.index', compact('article', 'kataDitemukan'));
+
+        $splitKata = preg_split("/[ ,.\n-]+/", $article);
+        $sortedKata = array_filter($splitKata);
+        natcasesort($sortedKata);
+
+        return view('dashboard.article.index', compact('article', 'kataDitemukan','sortedKata'));
     }
 }

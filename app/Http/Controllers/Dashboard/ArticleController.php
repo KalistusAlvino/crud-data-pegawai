@@ -91,9 +91,7 @@ Sumbangan Sukarela dan Tabungan Karyawisata.";
                 strtolower($request->pencarian_kata)
             );
         }
-
-        $splitKata = preg_split("/[ ,.\n-]+/", $article);
-        $sortedKata = array_filter($splitKata);
+        $sortedKata = array_filter(preg_split("/[ ,.\n-]+/", $article));
         natcasesort($sortedKata);
 
         return view('dashboard.article.index', compact('article', 'kataDitemukan','sortedKata'));

@@ -74,7 +74,6 @@ Sumbangan Sukarela dan Tabungan Karyawisata.";
     {
         $article = $this->article;
         $kataDitemukan = 0;
-        $sortedKata = [];
 
         if ($request->kata_diubah && $request->menjadi) {
             $article = str_ireplace(
